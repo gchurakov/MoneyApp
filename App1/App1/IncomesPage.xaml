@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="http://xamarin.com/schemas/2014/forms"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="App1.IncomesPage">
+    <ContentPage.Content>
+        <forms:StackLayout xmlns="http://schemas.android.com/apk/res/android"
+                      xmlns:app="http://schemas.android.com/apk/res-auto"
+                      xmlns:tools="http://schemas.android.com/tools" 
+                      Orientation="Vertical">
+        	    
+	        <forms:StackLayout
+        	    Orientation="Horizontal"
+        	    HorizontalOptions="FillAndExpand"
+        	    VerticalOptions="Start"
+        	    Margin="10">
+        		    
+        		<forms:Button
+	                Text="Profile"
+        		    x:Name="GoProfile"
+        		    HorizontalOptions="StartAndExpand"
+        		    Clicked="GoProfileP"/>
+        		    
+		        <forms:Label Text="Adding Income" Margin="0,15,0,15"
+		            FontSize="20" HorizontalOptions="Center"/>
+                <forms:Button Text="Settings" x:Name="SettingsButton" HorizontalOptions="EndAndExpand" Clicked="GoSettings"/>
+	        </forms:StackLayout>
+            
+	        <forms:Label Text="Укажите название поступления средств" HorizontalOptions="Center" FontSize="18"></forms:Label>
+	        <forms:Entry Placeholder="Название" HorizontalOptions="CenterAndExpand"></forms:Entry>
+	        
+	        <forms:Label Text="Укажите регулярность дохода в днях:" FontSize="18" HorizontalOptions="Center"></forms:Label>
+		    <forms:StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" 
+				Margin="100, 0,80,0">
+				<forms:Slider 
+					HorizontalOptions="StartAndExpand"
+				    x:Name="Regularity" 
+				    Minimum="0"
+				    Maximum="90"
+					Value="30"
+					WidthRequest="200" MinimumTrackColor="DeepPink" MaximumTrackColor="Gray" ThumbColor="DeepPink">
+			    </forms:Slider>
+			    <forms:Entry Placeholder="Days" Margin="10, 0,60,0"
+			                 Keyboard="Numeric">
+			    </forms:Entry>
+		    </forms:StackLayout>
+	        
+	        <forms:Label Text="Укажите размер денежной суммы:" FontSize="18" HorizontalOptions="Center"></forms:Label>
+	        <forms:StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" 
+	                           Margin="100, 0,120,0">
+		        <forms:Slider 
+			        x:Name="Money" 
+			        Minimum="0"
+			        Maximum="5000"
+			        Value="1000" MinimumTrackColor="DeepPink" MaximumTrackColor="Gray" ThumbColor="DeepPink"
+			        WidthRequest="200">
+		        </forms:Slider>
+			        
+		        <forms:Entry
+			        Placeholder="Money"
+			        Margin="10, 0,60,0"
+			        Keyboard="Numeric"
+		        ></forms:Entry>
+	        </forms:StackLayout>
+				
+	        <forms:Label Text="Выберите счет зачисления" FontSize="18" HorizontalOptions="Center" />
+	        <forms:Picker x:Name="picker" Title="Выбор счета зачисления" FontSize="20" HorizontalOptions="Center" >
+		        <forms:Picker.Items>
+			        <x:String>NEW ACCOUNT</x:String>
+		        </forms:Picker.Items>
+	        </forms:Picker>
+				
+	        <forms:Label Text="Укажите дату поступления" FontSize="18" HorizontalOptions="Center" ></forms:Label>
+	        <forms:DatePicker Date="{forms:Binding Today}" HorizontalOptions="Center"></forms:DatePicker>
+	        
+	        
+			<forms:Button
+				Text="Add Income"
+				Margin="0, 20,0,0"
+				HorizontalOptions="CenterAndExpand"
+				Clicked="Add_Income"></forms:Button>
+	        <forms:StackLayout
+		        Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand"
+		        VerticalOptions="EndAndExpand">
+        		    
+		        <forms:Button Text="–" Clicked="GoMoneySpends" x:Name="MoneyMinusButton" HorizontalOptions="StartAndExpand"
+		                      FontSize="26" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"/>
+        		    
+		        <forms:Button Text="🔙" x:Name="Back" FontSize="26"  HorizontalOptions="EndAndExpand"
+        			    Clicked="GoBack" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"/>
+	        </forms:StackLayout>
+        	    
+            
+        </forms:StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="http://xamarin.com/schemas/2014/forms"
+
+             x:Class="App1.SettingsPage">
+    <ContentPage.Content>
+	    <forms:StackLayout xmlns="http://schemas.android.com/apk/res/android"
+                      xmlns:app="http://schemas.android.com/apk/res-auto"
+                      xmlns:tools="http://schemas.android.com/tools" 
+                      Orientation="Vertical">
+        	    
+        	    <forms:StackLayout
+        		    Orientation="Horizontal"
+        		    HorizontalOptions="FillAndExpand"
+        		    VerticalOptions="Start"
+        		    Margin="10">
+        		    
+	                <forms:Button
+		                Text="Profile"
+		                x:Name="GoProfile"
+		                HorizontalOptions="StartAndExpand"
+		                Clicked="GoProfileP"/>
+        		    
+	                <forms:Label
+        			    Text="Settings"
+        			    FontSize="20"
+        			    HorizontalOptions="Center"/>
+        		    
+	                <forms:Button
+		                x:Name="GoBackButton"
+		                Text="Back"
+		                HorizontalOptions="EndAndExpand"
+		                Clicked="GoBack"/>
+        	    </forms:StackLayout>
+		    
+				<forms:StackLayout
+					Orientation="Horizontal"
+					>
+					<forms:Label
+						Text="Dark Mode"
+						FontSize="18"
+						Margin="130,20,0,15"></forms:Label>
+					<forms:Switch
+						        IsToggled="False"
+						        x:Name="DarkMode"
+						        OnColor="Blue"
+						        Margin="20,20,120,15"></forms:Switch>
+				</forms:StackLayout>
+        	    
+			    <forms:Picker 
+				    x:Name="laguage" 
+				    Title="Choose App Language"
+				    Margin="100, 20,80,0"
+				    SelectedIndexChanged="ChoseLanguage">
+				    <forms:Picker.Items>
+					    <x:String>English</x:String>
+					    <x:String>Русский</x:String>
+				    </forms:Picker.Items></forms:Picker>
+            
+        	    <forms:StackLayout
+        		    Orientation="Horizontal"
+        		    Margin="10"
+        		    HorizontalOptions="FillAndExpand"
+        		    VerticalOptions="EndAndExpand">
+        		    
+        		    <forms:Button
+        			    Text="–"
+        			    x:Name="MoneyMinusButton"
+        			    HorizontalOptions="StartAndExpand"
+        			    Clicked="GoMoneySpends"/>
+        		    
+        		    <forms:Button
+        			    Text="+"
+        			    x:Name="MoneyPlusButton"
+        			    HorizontalOptions="EndAndExpand"
+        			    Clicked="GoMoneyIncomes"/>
+        	    </forms:StackLayout>
+        	    
+            
+        </forms:StackLayout>
+	    
+    </ContentPage.Content>
+</ContentPage>

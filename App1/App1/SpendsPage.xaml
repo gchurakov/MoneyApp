@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="http://xamarin.com/schemas/2014/forms"
+             x:Class="App1.SpendsPage">
+	<ContentPage.Content>
+        <forms:StackLayout xmlns="http://schemas.android.com/apk/res/android"
+                      xmlns:app="http://schemas.android.com/apk/res-auto"
+                      xmlns:tools="http://schemas.android.com/tools" 
+                      Orientation="Vertical">
+        	    
+        	    <forms:StackLayout
+        		    Orientation="Horizontal"
+        		    HorizontalOptions="FillAndExpand"
+        		    VerticalOptions="Start"
+        		    Margin="10">
+        		    
+        		    <forms:Button
+	                    Text="👤" FontSize="26" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"
+        			    x:Name="GoBackButton"
+        			    HorizontalOptions="StartAndExpand"
+        			    Clicked="GoProfile"/>
+        		    
+        		    <forms:Label
+        			    Text="Adding Money's Spends"
+                        Margin="0,15,0,15"
+        			    FontSize="20"
+        			    HorizontalOptions="Center"/>
+        		    
+        		    <forms:Button
+	                    Text="Settings"
+        			    x:Name="SettingsButton"
+        			    HorizontalOptions="EndAndExpand"
+        			    Clicked="GoSettings"/>
+        	    </forms:StackLayout>
+            
+		        <forms:Label Text="Укажите название расхода средств" HorizontalOptions="Center" FontSize="18"></forms:Label>
+	        <forms:Entry Placeholder="Название" HorizontalOptions="CenterAndExpand"></forms:Entry>
+	        
+	        <forms:Label Text="Укажите регулярность расхода в днях:" FontSize="18" HorizontalOptions="Center"></forms:Label>
+		    <forms:StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" 
+				Margin="100, 0,80,0">
+				<forms:Slider 
+					HorizontalOptions="StartAndExpand"
+				    x:Name="Regularity" 
+				    Minimum="0"
+				    Maximum="90"
+					Value="30"
+					WidthRequest="200" MinimumTrackColor="DeepPink" MaximumTrackColor="Gray" ThumbColor="DeepPink">
+			    </forms:Slider>
+			    <forms:Entry Placeholder="Days" Margin="10, 0,60,0"
+			                 Keyboard="Numeric">
+			    </forms:Entry>
+		    </forms:StackLayout>
+	        
+	        <forms:Label Text="Укажите размер денежной суммы:" FontSize="18" HorizontalOptions="Center"></forms:Label>
+	        <forms:StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" 
+	                           Margin="100, 0,120,0">
+		        <forms:Slider 
+			        x:Name="Money" 
+			        Minimum="0"
+			        Maximum="5000"
+			        Value="1000" MinimumTrackColor="DeepPink" MaximumTrackColor="Gray" ThumbColor="DeepPink"
+			        WidthRequest="200">
+		        </forms:Slider>
+			        
+		        <forms:Entry
+			        Placeholder="Money"
+			        Margin="10, 0,60,0"
+			        Keyboard="Numeric"
+		        ></forms:Entry>
+	        </forms:StackLayout>
+				
+	        <forms:Label Text="Выберите счет списания" FontSize="18" HorizontalOptions="Center" />
+	        <forms:Picker x:Name="pickerAcc" Title="Выбор счета списания" FontSize="20" HorizontalOptions="Center" >
+		        <forms:Picker.Items>
+			        <x:String>card1</x:String>
+			        <x:String>NEW ACCOUNT</x:String>
+		        </forms:Picker.Items>
+	        </forms:Picker>
+				
+	        <forms:Label Text="Выберите категории расходов" FontSize="18" HorizontalOptions="Center" />
+	        <forms:Picker x:Name="pickerCateg" Title="Выбор категории расходов" FontSize="20" HorizontalOptions="Center" >
+		        <forms:Picker.Items>
+			        <x:String>одежда</x:String>
+			        <x:String>NEW CATEGORY</x:String>
+		        </forms:Picker.Items>
+	        </forms:Picker>
+	        
+	        
+	        <forms:Label Text="Укажите дату списания" FontSize="18" HorizontalOptions="Center" ></forms:Label>
+	        <forms:DatePicker Date="{forms:Binding Today}" HorizontalOptions="Center"></forms:DatePicker>
+	        
+	        
+	        
+        	    <forms:StackLayout
+        		    Orientation="Horizontal"
+        		    Margin="10"
+        		    HorizontalOptions="FillAndExpand"
+        		    VerticalOptions="EndAndExpand">
+        		    
+        		    <forms:Button
+	                    Text="←" FontAttributes="Bold"
+        			    x:Name="Back"
+        			    HorizontalOptions="StartAndExpand"
+	                    FontSize="24" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"
+        			    Clicked="GoBack"/>
+        		    
+                    <forms:Button
+	                    Text="+"
+	                    x:Name="MoneyPlusButton"
+	                    HorizontalOptions="EndAndExpand"
+	                    FontSize="26" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"
+	                    Clicked="GoMoneyIncomes"/>
+        	    </forms:StackLayout>
+        	    
+            
+        </forms:StackLayout>
+    </ContentPage.Content>
+	
+</ContentPage>

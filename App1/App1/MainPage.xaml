@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             xmlns:forms="http://xamarin.com/schemas/2014/forms"
+             xmlns:appData1="clr-namespace:AppData1;assembly=appData1"
+             x:Class="App1.MainPage">
+	
+	
+
+	<forms:StackLayout xmlns="http://schemas.android.com/apk/res/android"
+	                   xmlns:app="http://schemas.android.com/apk/res-auto"
+	                   xmlns:tools="http://schemas.android.com/tools" 
+	                   Orientation="Vertical">
+	    
+	    <forms:StackLayout
+		    Orientation="Horizontal"
+		    HorizontalOptions="FillAndExpand"
+		    VerticalOptions="Start"
+		    Margin="10, 10, 10, 0">
+		    
+		    <forms:Button
+			    Text="←" FontAttributes="Bold"
+			    x:Name="Back"
+			    HorizontalOptions="StartAndExpand"
+			    FontSize="24" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"
+			    Clicked="GoBack"/>
+		    
+		    <forms:Label
+			    Text="Profile"
+			    FontSize="20"
+			    HorizontalOptions="Center"/>
+		    
+		    <forms:Button
+			    x:Name="SettingsButton"
+			    Text="Settings"
+			    HorizontalOptions="EndAndExpand"
+			    Clicked="GoSettings"/>
+	    </forms:StackLayout>
+    
+	    <forms:Label
+		    x:Name="UserName"
+		    HorizontalOptions="Center"
+		    Text="username"
+		    FontSize="22"
+		    Padding="0"></forms:Label>
+	    
+	    <forms:Frame
+				BorderColor="Black"
+				HeightRequest="60"
+				WidthRequest="60"
+				Margin="120,0,120,10"
+	            HorizontalOptions="Center"
+				CornerRadius="90"
+				IsClippedToBounds="True">
+		    <forms:Image
+			    Margin="-21"
+			    Source="@drawable/icon"></forms:Image>
+	    </forms:Frame>
+
+	    <forms:ScrollView
+					    Orientation="Horizontal"
+					    VerticalOptions="Start"
+					    HorizontalScrollBarVisibility="Always">
+					    <forms:StackLayout
+						    Orientation="Horizontal">
+						    
+						    <forms:StackLayout 
+							    HorizontalOptions="Fill"
+							    VerticalOptions="StartAndExpand"
+							    Padding="10,0,10,0">
+							    <forms:Label HorizontalOptions="Center" Text="Accounts" FontSize="20"></forms:Label> 
+						    <forms:ScrollView
+							    VerticalOptions="Fill"
+							    HorizontalOptions="Fill">
+							    <forms:StackLayout>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
+								    <forms:Button x:Name="AddAcc" Text="New Account" FontSize="20" VerticalOptions="FillAndExpand" BorderColor="Black" WidthRequest="390"></forms:Button>
+							    </forms:StackLayout>
+						    </forms:ScrollView>
+						    </forms:StackLayout>
+					    
+						    <forms:StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+						                       Margin="10,0,10,0">
+							    <forms:Label HorizontalOptions="Center" Text="Goals" FontSize="20"></forms:Label> 
+							    <forms:ScrollView
+								    VerticalOptions="Fill"
+								    HorizontalOptions="Fill">
+								    <forms:StackLayout>
+									    
+									    <forms:RefreshView IsRefreshing="{forms:Binding IsRefreshing}"
+									                 Command="{forms:Binding RefreshCommand}">
+										    <forms:ListView x:Name="col1" SelectionMode="Single" HorizontalOptions="FillAndExpand" 
+										                          ItemsSource="{forms:Binding profile.Acccounts}" x:DataType="appData1:Account">
+											    <forms:ListView.ItemTemplate>
+												    
+												    <forms:DataTemplate Bindings="{forms:Binding }">
+													    
+													    <forms:StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+														    
+														    <forms:Label Text="{forms:Binding Title}" FontSize="18" HorizontalOptions="Start"></forms:Label>
+														    <forms:Label Text="{forms:Binding Balance}" FontSize="18" HorizontalOptions="End"></forms:Label>
+														    
+													    </forms:StackLayout>
+													    
+												    </forms:DataTemplate>
+											    </forms:ListView.ItemTemplate>
+										    </forms:ListView>
+									    </forms:RefreshView>
+									    
+									    <forms:Button x:Name="AddGoal" Text="New Goal" FontSize="20"  VerticalOptions="FillAndExpand" BorderColor="Black" WidthRequest="390"></forms:Button>
+								    </forms:StackLayout>
+							    </forms:ScrollView>
+						    </forms:StackLayout>
+						    
+						    <forms:StackLayout HorizontalOptions="FillAndExpand"
+						                       Margin="10,0,10,0">
+							    <forms:Label HorizontalOptions="Center" Text="Planning Categories Spends" FontSize="20"></forms:Label> 
+							    <forms:ScrollView
+								    VerticalOptions="Fill"
+								    HorizontalOptions="Fill">
+								    <forms:StackLayout>
+									    <forms:Button x:Name="AddCateg" Text="New Plan for Category" FontSize="20"  VerticalOptions="FillAndExpand" BorderColor="Black" WidthRequest="390"></forms:Button>
+								    </forms:StackLayout>
+							    </forms:ScrollView>
+						    </forms:StackLayout>
+						    
+					    </forms:StackLayout>
+		    
+				    </forms:ScrollView>
+	    
+	    <forms:StackLayout
+		    Orientation="Horizontal"
+		    Margin="10"
+		    HorizontalOptions="FillAndExpand"
+		    VerticalOptions="EndAndExpand">
+		    
+		    <forms:Button
+			    Text="–" FontSize="24" FontAttributes="Bold"
+			    x:Name="MoneyMinusButton"
+			    HorizontalOptions="StartAndExpand" 
+			    Clicked="GoMoneySpends" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"/>
+		    
+		    <forms:Button
+			    Text="+" FontSize="24" FontAttributes="Bold"
+			    x:Name="MoneyPlusButton"
+			    HorizontalOptions="EndAndExpand" 
+			    Clicked="GoMoneyIncomes" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"/>
+	    </forms:StackLayout>
+	    
+    
+</forms:StackLayout>
+
+</ContentPage>
