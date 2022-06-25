@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:App1"
              xmlns:forms="http://xamarin.com/schemas/2014/forms"
              xmlns:appData1="clr-namespace:AppData1;assembly=appData1"
-             x:Class="App1.MainPage">
+             x:Class="App1.MainPage"
+             >
 	
 	
 
@@ -14,48 +15,34 @@
 	                   Orientation="Vertical">
 	    
 	    <forms:StackLayout
-		    Orientation="Horizontal"
-		    HorizontalOptions="FillAndExpand"
-		    VerticalOptions="Start"
-		    Margin="10, 10, 10, 0">
+		    Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+		    VerticalOptions="Start" Margin="10, 10, 10, 0">
 		    
 		    <forms:Button
-			    Text="←" FontAttributes="Bold"
-			    x:Name="Back"
-			    HorizontalOptions="StartAndExpand"
+			    Text="←" FontAttributes="Bold" x:Name="Back" HorizontalOptions="StartAndExpand"
 			    FontSize="24" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"
 			    Clicked="GoBack"/>
 		    
-		    <forms:Label
-			    Text="Profile"
-			    FontSize="20"
+		    <forms:Label Text="Профиль" FontSize="20"
 			    HorizontalOptions="Center"/>
 		    
 		    <forms:Button
 			    x:Name="SettingsButton"
 			    Text="Settings"
 			    HorizontalOptions="EndAndExpand"
-			    Clicked="GoSettings"/>
+			    IsVisible="False"/>
 	    </forms:StackLayout>
     
 	    <forms:Label
-		    x:Name="UserName"
-		    HorizontalOptions="Center"
-		    Text="username"
-		    FontSize="22"
-		    Padding="0"></forms:Label>
+		    x:Name="UserName" HorizontalOptions="CenterAndExpand"
+		    Text="Алексей" FontSize="22" Padding="0"/>
 	    
 	    <forms:Frame
-				BorderColor="Black"
-				HeightRequest="60"
-				WidthRequest="60"
-				Margin="120,0,120,10"
-	            HorizontalOptions="Center"
-				CornerRadius="90"
-				IsClippedToBounds="True">
+				BorderColor="Black" HeightRequest="60" WidthRequest="60"
+				Margin="120,0,120,10" HorizontalOptions="Center"
+				CornerRadius="90" IsClippedToBounds="True">
 		    <forms:Image
-			    Margin="-21"
-			    Source="@drawable/icon"></forms:Image>
+			    Margin="-21" Source="@drawable/icon"/>
 	    </forms:Frame>
 
 	    <forms:ScrollView
@@ -69,75 +56,43 @@
 							    HorizontalOptions="Fill"
 							    VerticalOptions="StartAndExpand"
 							    Padding="10,0,10,0">
-							    <forms:Label HorizontalOptions="Center" Text="Accounts" FontSize="20"></forms:Label> 
+							    <forms:Label HorizontalOptions="Center" Text="Счета" FontSize="22"/> 
 						    <forms:ScrollView
 							    VerticalOptions="Fill"
 							    HorizontalOptions="Fill">
 							    <forms:StackLayout>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Label HorizontalOptions="Center" Text="User Name"></forms:Label>
-								    <forms:Button x:Name="AddAcc" Text="New Account" FontSize="20" VerticalOptions="FillAndExpand" BorderColor="Black" WidthRequest="390"></forms:Button>
+								    <forms:Label HorizontalOptions="Center" Text="{}" />
+								    <forms:Label HorizontalOptions="Center" Text="Мульти Карта ВТБ" Margin="6" FontSize="20"/>
+								    <forms:Label HorizontalOptions="Center" Text="Тинькофф Блек" Margin="6" FontSize="20"/>
+								    <forms:Button x:Name="AddAcc" Text="Добавить счет" FontSize="20" VerticalOptions="FillAndExpand" BorderColor="Black" WidthRequest="390" Clicked="AddAcc_OnClicked"/>
 							    </forms:StackLayout>
 						    </forms:ScrollView>
 						    </forms:StackLayout>
 					    
 						    <forms:StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"
 						                       Margin="10,0,10,0">
-							    <forms:Label HorizontalOptions="Center" Text="Goals" FontSize="20"></forms:Label> 
+							    <forms:Label HorizontalOptions="Center" Text="Копилки" FontSize="20"/> 
 							    <forms:ScrollView
 								    VerticalOptions="Fill"
 								    HorizontalOptions="Fill">
 								    <forms:StackLayout>
 									    
-									    <forms:RefreshView IsRefreshing="{forms:Binding IsRefreshing}"
-									                 Command="{forms:Binding RefreshCommand}">
-										    <forms:ListView x:Name="col1" SelectionMode="Single" HorizontalOptions="FillAndExpand" 
-										                          ItemsSource="{forms:Binding profile.Acccounts}" x:DataType="appData1:Account">
-											    <forms:ListView.ItemTemplate>
-												    
-												    <forms:DataTemplate Bindings="{forms:Binding }">
-													    
-													    <forms:StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-														    
-														    <forms:Label Text="{forms:Binding Title}" FontSize="18" HorizontalOptions="Start"></forms:Label>
-														    <forms:Label Text="{forms:Binding Balance}" FontSize="18" HorizontalOptions="End"></forms:Label>
-														    
-													    </forms:StackLayout>
-													    
-												    </forms:DataTemplate>
-											    </forms:ListView.ItemTemplate>
-										    </forms:ListView>
-									    </forms:RefreshView>
+									   
 									    
-									    <forms:Button x:Name="AddGoal" Text="New Goal" FontSize="20"  VerticalOptions="FillAndExpand" BorderColor="Black" WidthRequest="390"></forms:Button>
+									    <forms:Button x:Name="AddGoal" Text="Новая копилка" FontSize="20"  VerticalOptions="FillAndExpand" BorderColor="Black" WidthRequest="390" />
+
 								    </forms:StackLayout>
 							    </forms:ScrollView>
 						    </forms:StackLayout>
 						    
 						    <forms:StackLayout HorizontalOptions="FillAndExpand"
 						                       Margin="10,0,10,0">
-							    <forms:Label HorizontalOptions="Center" Text="Planning Categories Spends" FontSize="20"></forms:Label> 
+							    <forms:Label HorizontalOptions="Center" Text="Планирование расходов по категориям" FontSize="20" />
 							    <forms:ScrollView
 								    VerticalOptions="Fill"
 								    HorizontalOptions="Fill">
 								    <forms:StackLayout>
-									    <forms:Button x:Name="AddCateg" Text="New Plan for Category" FontSize="20"  VerticalOptions="FillAndExpand" BorderColor="Black" WidthRequest="390"></forms:Button>
+									    <forms:Button x:Name="AddCateg" Text="Добавить категорию" FontSize="20"  VerticalOptions="FillAndExpand" BorderColor="Black" WidthRequest="390" />
 								    </forms:StackLayout>
 							    </forms:ScrollView>
 						    </forms:StackLayout>

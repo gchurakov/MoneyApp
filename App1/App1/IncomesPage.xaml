@@ -17,15 +17,15 @@
         	    VerticalOptions="Start"
         	    Margin="10">
         		    
-        		<forms:Button
-	                Text="Profile"
-        		    x:Name="GoProfile"
-        		    HorizontalOptions="StartAndExpand"
-        		    Clicked="GoProfileP"/>
+		        <forms:Button
+			        Text="👤" FontSize="26" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"
+			        x:Name="GoBackButton"
+			        HorizontalOptions="StartAndExpand"
+			        Clicked="GoProfileP"/>
         		    
-		        <forms:Label Text="Adding Income" Margin="0,15,0,15"
+		        <forms:Label Text="Добавление доходов" Margin="0,15,0,15"
 		            FontSize="20" HorizontalOptions="Center"/>
-                <forms:Button Text="Settings" x:Name="SettingsButton" HorizontalOptions="EndAndExpand" Clicked="GoSettings"/>
+                <forms:Button Text="Settings" x:Name="SettingsButton" HorizontalOptions="EndAndExpand" Clicked="GoSettings" IsVisible="False"/>
 	        </forms:StackLayout>
             
 	        <forms:Label Text="Укажите название поступления средств" HorizontalOptions="Center" FontSize="18"></forms:Label>
@@ -42,8 +42,8 @@
 					Value="30"
 					WidthRequest="200" MinimumTrackColor="DeepPink" MaximumTrackColor="Gray" ThumbColor="DeepPink">
 			    </forms:Slider>
-			    <forms:Entry Placeholder="Days" Margin="10, 0,60,0"
-			                 Keyboard="Numeric">
+			    <forms:Entry Placeholder="{forms:Binding Value}" BindingContext="{x:Reference Regularity}"
+			                 Keyboard="Numeric" Margin="10, 0,60,0">
 			    </forms:Entry>
 		    </forms:StackLayout>
 	        
@@ -59,7 +59,7 @@
 		        </forms:Slider>
 			        
 		        <forms:Entry
-			        Placeholder="Money"
+			        Placeholder="{forms:Binding Value}" BindingContext="{x:Reference Money}"
 			        Margin="10, 0,60,0"
 			        Keyboard="Numeric"
 		        ></forms:Entry>
@@ -68,7 +68,8 @@
 	        <forms:Label Text="Выберите счет зачисления" FontSize="18" HorizontalOptions="Center" />
 	        <forms:Picker x:Name="picker" Title="Выбор счета зачисления" FontSize="20" HorizontalOptions="Center" >
 		        <forms:Picker.Items>
-			        <x:String>NEW ACCOUNT</x:String>
+			        <x:String>Мульти карта ВТБ</x:String>
+			        <x:String>Тинькофф Блек</x:String>
 		        </forms:Picker.Items>
 	        </forms:Picker>
 				
@@ -77,10 +78,10 @@
 	        
 	        
 			<forms:Button
-				Text="Add Income"
+				Text="Сохранить"
 				Margin="0, 20,0,0"
 				HorizontalOptions="CenterAndExpand"
-				Clicked="Add_Income"></forms:Button>
+				Clicked="Add_Income"/>
 	        <forms:StackLayout
 		        Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand"
 		        VerticalOptions="EndAndExpand">
@@ -88,7 +89,7 @@
 		        <forms:Button Text="–" Clicked="GoMoneySpends" x:Name="MoneyMinusButton" HorizontalOptions="StartAndExpand"
 		                      FontSize="26" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"/>
         		    
-		        <forms:Button Text="🔙" x:Name="Back" FontSize="26"  HorizontalOptions="EndAndExpand"
+		        <forms:Button Text="←" x:Name="Back" FontSize="26"  HorizontalOptions="EndAndExpand"
         			    Clicked="GoBack" CornerRadius="90" WidthRequest="50" HeightRequest="50" BackgroundColor="PaleVioletRed"/>
 	        </forms:StackLayout>
         	    

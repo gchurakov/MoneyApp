@@ -16,13 +16,9 @@ namespace App1
         public IncomesPage()
         {
             InitializeComponent();
+            BindingContext = this;
         }
-        
-        private void Picker_IncomeRegularity(object sender, EventArgs e)
-        {
-            DisplayAlert("ВЫбор регулярности дохода", "не нажимай! еще не готово!", "ОK");
-        }
-        
+
         private async void GoSettings(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new SettingsPage());
@@ -48,7 +44,7 @@ namespace App1
 
         private void Add_Income(object sender, EventArgs e)
         {
-            DisplayAlert("Save Income", "не нажимай! еще не готово!", "ОK");
+            DisplayAlert("Добавление дохода", "Все отлично, доход записан!", "Класс!");
         }
     }
 }

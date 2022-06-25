@@ -15,7 +15,7 @@ namespace App1
 
             MainPage = new NavigationPage(new MainPage());
 
-            Profile profile = Profile.FromJson("file.json");
+            //Profile profile = Profile.FromJson("file.json");
             
         }
 

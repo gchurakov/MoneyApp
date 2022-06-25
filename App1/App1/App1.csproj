@@ -20,4 +20,12 @@
       </Reference>
       <Reference Include="Mono.Android" />
     </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="AddGoalPage.xaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="AddGoalPage.xaml.cs" />
+    </ItemGroup>
 </Project>
