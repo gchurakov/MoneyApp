@@ -19,7 +19,7 @@ namespace App1
 
         private void Picker_IncomeRegularity(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
         
         private async void GoSettings(object sender, EventArgs e)
@@ -45,7 +45,10 @@ namespace App1
             await Navigation.PushModalAsync(new IncomesPage());
         }
 
-        
+        private void Add_Spend(object sender, EventArgs e)
+        {
+            DisplayAlert("Добавление расхода", "Все отлично, засход записан!", "Класс!");
+        }
 
         
     }
